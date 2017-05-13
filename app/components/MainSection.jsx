@@ -8,6 +8,7 @@ const cx = classNames.bind(styles);
 
 const MainSection = ({ topics, onIncrement, onDecrement, onDestroy }) => {
   const topicItems = topics.map((topic, key) => {
+    if(!topic.completed) {
     return (
       <TopicItem
         index={key}
@@ -17,11 +18,12 @@ const MainSection = ({ topics, onIncrement, onDecrement, onDestroy }) => {
         incrementCount={onIncrement}
         decrementCount={onDecrement}
         destroyTopic={onDestroy} />);
+    }
   });
 
   return (
     <div className={cx('main-section')}>
-      <h3 className={cx('header')}>Vote for your favorite hack day idea</h3>
+      <h3 className={cx('header')}>Tasks I haven't completed yet.</h3>
       <ul className={cx('list')}>{topicItems}</ul>
     </div>
   );

@@ -7,16 +7,21 @@ const cx = classNames.bind(styles);
 
 const Scoreboard = ({topics}) => {
   const topicListItems = topics.map((topic, key) => {
-    return (
-      <li className={cx('item')} key={key}>
-        <span className={cx('topic')}>{topic.text}</span>
-        <span className={cx('count')}>{topic.count}</span>
-      </li>
-    );
+    if(topic.completed){
+      return (
+
+        <li className={cx('item')} key={key}>
+          <span className={cx('topic')}>{topic.text}</span>
+            <button
+              className={cx('button', 'increment')}
+              onClick={onIncrement}>+</button>
+        </li>
+      );
+    }
   });
   return (
     <div className={cx('scoreboard')}>
-      <h3 className={cx('header')}>Vote count</h3>
+      <h3 className={cx('header')}>Completed Tasks</h3>
       <ul className={cx('list')}>
         {topicListItems}
       </ul>
