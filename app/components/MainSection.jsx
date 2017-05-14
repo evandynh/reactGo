@@ -6,7 +6,7 @@ import styles from '../css/components/main-section';
 
 const cx = classNames.bind(styles);
 
-const MainSection = ({ topics, onIncrement, onDecrement, onDestroy, onCompletion }) => {
+const MainSection = ({ topics, onDestroy, onCompletion }) => {
   const topicItems = topics.map((topic, key) => {
     if(!topic.complete) {
     return (
@@ -16,8 +16,6 @@ const MainSection = ({ topics, onIncrement, onDecrement, onDestroy, onCompletion
         key={key}
         text={topic.text}
         complete={onCompletion}
-        incrementCount={onIncrement}
-        decrementCount={onDecrement}
         destroyTopic={onDestroy} />);
     }
   });
@@ -32,8 +30,6 @@ const MainSection = ({ topics, onIncrement, onDecrement, onDestroy, onCompletion
 
 MainSection.propTypes = {
   topics: PropTypes.array.isRequired,
-  // onIncrement: PropTypes.func.isRequired,
-  // onDecrement: PropTypes.func.isRequired,
   onDestroy: PropTypes.func.isRequired
 };
 

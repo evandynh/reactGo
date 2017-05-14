@@ -5,7 +5,7 @@ import styles from '../css/components/topic-item';
 
 const cx = classNames.bind(styles);
 
-const TopicItem = ({ text, id, incrementCount, decrementCount, complete, destroyTopic }) => {
+const TopicItem = ({ text, id, incrementCount, decrementCount, complete, incomplete, destroyTopic }) => {
   const onIncrement = () => {
     incrementCount(id);
   };
@@ -14,6 +14,9 @@ const TopicItem = ({ text, id, incrementCount, decrementCount, complete, destroy
   };
   const onCompletion = () => {
     complete(id);
+  };
+  const onIncompletion = () => {
+    incomplete(id);
   };
   const onDestroy = () => {
     destroyTopic(id);
@@ -35,8 +38,6 @@ const TopicItem = ({ text, id, incrementCount, decrementCount, complete, destroy
 TopicItem.propTypes = {
   text: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  // incrementCount: PropTypes.func.isRequired,
-  // decrementCount: PropTypes.func.isRequired,
   destroyTopic: PropTypes.func.isRequired
 };
 

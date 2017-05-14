@@ -10,16 +10,14 @@ const Scoreboard = ({topics, onIncompletion, onDestroy}) => {
   const topicListItems = topics.map((topic, key) => {
     if(topic.complete){
       return (
-
-        <li className={cx('item')} key={key}>
-          <span className={cx('topic')}>{topic.text}</span>
-          <button
-            className={cx('button', 'decrement')}
-            onClick={onIncompletion}>+</button>
-          <button
-            className={cx('button', 'destory')}
-            onClick={onDestroy}>+</button>
-        </li>
+        <TopicItem
+          index={key}
+          id={topic.id}
+          key={key}
+          text={topic.text}
+          complete={onIncompletion}
+          destroyTopic={onDestroy}
+          />
       );
     }
   });
