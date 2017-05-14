@@ -5,12 +5,15 @@ import styles from '../css/components/topic-item';
 
 const cx = classNames.bind(styles);
 
-const TopicItem = ({ text, id, incrementCount, decrementCount, destroyTopic }) => {
+const TopicItem = ({ text, id, incrementCount, decrementCount, complete, destroyTopic }) => {
   const onIncrement = () => {
     incrementCount(id);
   };
   const onDecrement = () => {
     decrementCount(id);
+  };
+  const onCompletion = () => {
+    complete(id);
   };
   const onDestroy = () => {
     destroyTopic(id);
@@ -21,10 +24,7 @@ const TopicItem = ({ text, id, incrementCount, decrementCount, destroyTopic }) =
       <span className={cx('topic')}>{text}</span>
       <button
         className={cx('button', 'increment')}
-        onClick={onIncrement}>+</button>
-      <button
-        className={cx('button', 'decrement')}
-        onClick={onDecrement}>-</button>
+        onClick={onCompletion}>✓</button>
       <button
         className={cx('button', 'destroy')}
         onClick={onDestroy}>{String.fromCharCode(215)}</button>
@@ -35,8 +35,8 @@ const TopicItem = ({ text, id, incrementCount, decrementCount, destroyTopic }) =
 TopicItem.propTypes = {
   text: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  incrementCount: PropTypes.func.isRequired,
-  decrementCount: PropTypes.func.isRequired,
+  // incrementCount: PropTypes.func.isRequired,
+  // decrementCount: PropTypes.func.isRequired,
   destroyTopic: PropTypes.func.isRequired
 };
 

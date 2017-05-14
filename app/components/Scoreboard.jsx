@@ -14,7 +14,7 @@ const Scoreboard = ({topics}) => {
           <span className={cx('topic')}>{topic.text}</span>
             <button
               className={cx('button', 'increment')}
-              onClick={onIncrement}>+</button>
+              onClick={onIncompletion}>+</button>
         </li>
       );
     }

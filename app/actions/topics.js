@@ -11,8 +11,12 @@ function decrement(id) {
   return { type: types.DECREMENT_COUNT, id };
 }
 
-function destroy(id) {
-  return { type: types.DESTROY_TOPIC, id };
+function complete(id) {
+  return { type: types.COMPLETED, id };
+}
+
+function incomplete(id) {
+  return { type: types.NOT_COMPLETED, id };
 }
 
 function createTopicRequest(data) {
@@ -123,6 +127,34 @@ export function decrementCount(id) {
     })
       .then(() => dispatch(decrement(id)))
       .catch(() => dispatch(createTopicFailure({id, error: 'Oops! Something went wrong and we couldn\'t add your vote'})));
+  };
+}
+
+export function taskComplete(id) {
+  return (dispatch) => {
+    return voteService().updateTopic({
+      id,
+      data: {
+        isFull: false,
+        isCompleted: true
+      }
+    })
+      .then(() => dispatch(complete(id)))
+      .catch(() => dispatch(createTopicFailure({id, error: 'Oops! Something went wrong and we couldn\'t update your task'})));
+  };
+}
+
+export function taskIncomplete(id) {
+  return (dispatch) => {
+    return voteService().updateTopic({
+      id,
+      data: {
+        isFull: false,
+        isCompleted: false
+      }
+    })
+      .then(() => dispatch(incomplete(id)))
+      .catch(() => dispatch(createTopicFailure({id, error: 'Oops! Something went wrong and we couldn\'t update your task'})));
   };
 }
 

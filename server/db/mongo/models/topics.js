@@ -8,7 +8,7 @@ const TopicSchema = new mongoose.Schema({
   id: String,
   text: String,
   count: { type: Number, min: 0 },
-  completed: { type: Boolean, default: false },
+  complete: { type: Boolean, default: false },
   date: { type: Date, default: Date.now }
 });
 

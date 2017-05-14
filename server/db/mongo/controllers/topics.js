@@ -35,8 +35,9 @@ export function add(req, res) {
 export function update(req, res) {
   const query = { id: req.params.id };
   const isIncrement = req.body.isIncrement;
+  const isCompleted = req.body.isCompleted
   const isFull = req.body.isFull;
-  const omitKeys = ['id', '_id', '_v', 'isIncrement', 'isFull'];
+  const omitKeys = ['id', '_id', '_v', 'isIncrement', 'isFull', 'isCompleted'];
   const data = _.omit(req.body, omitKeys);
 
   if (isFull) {
@@ -49,7 +50,7 @@ export function update(req, res) {
       return res.status(200).send('Updated successfully');
     });
   } else {
-    Topic.findOneAndUpdate(query, { $inc: { count: isIncrement ? 1 : -1 } }, (err) => {
+    Topic.findOneAndUpdate(query, { complete: isCompleted ? true : false }, (err) => {
       if (err) {
         console.log('Error on save!');
         return res.status(500).send('We failed to save for some reason');
