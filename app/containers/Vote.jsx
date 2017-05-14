@@ -29,6 +29,7 @@ class Vote extends Component {
         <Scoreboard
           topics={topics}
           onIncompletion={taskIncomplete}
+          onDestroy={destroyTopic}
         />
       </div>
     );

@@ -4,7 +4,7 @@
 
 .main-section {
   @apply --card;
-  width: 50%;
+  width: 55%;
   border-radius: var(--globalRadius);
 }
 
@@ -19,4 +19,3 @@
   list-style: none;
   padding: 16px;
 }
-

@@ -5,6 +5,7 @@
 .topic-item {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .topic {
@@ -33,4 +34,3 @@
 .destroy {
   background-color: var(--colorPunch);
 }
-

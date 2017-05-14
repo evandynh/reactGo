@@ -1,23 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import TopicItem from '../components/TopicItem';
+import { onIncompletion, onDestroy } from '../components/TopicItem';
 import styles from '../css/components/scoreboard';
 
 const cx = classNames.bind(styles);
 
 const Scoreboard = ({topics, onIncompletion, onDestroy}) => {
   const topicListItems = topics.map((topic, key) => {
+
+    const incomplete = () => {
+      onIncompletion(topic.id);
+    };
+    const destroy = () => {
+      onDestroy(topic.id);
+    };
+
     if(topic.complete){
       return (
-        <TopicItem
-          index={key}
-          id={topic.id}
-          key={key}
-          text={topic.text}
-          complete={onIncompletion}
-          destroyTopic={onDestroy}
-          />
+        <li className={cx('item')} key={key}>
+          <span className={cx('topic')}>{topic.text}</span>
+          <button
+            className={cx('button', 'decrement')}
+            onClick={incomplete}>+</button>
+          <button
+            className={cx('button', 'destory')}
+            onClick={destroy}>{String.fromCharCode(215)}</button>
+        </li>
       );
     }
   });
