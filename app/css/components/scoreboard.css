@@ -1,6 +1,8 @@
 @import '../common/typography';
 @import '../common/layout';
 @import '../common/card';
+@import '../common/colors';
+
 
 .scoreboard {
   @apply --card;
@@ -27,4 +29,22 @@
 .topic {
   @apply --flexNotMoreThan200;
   font-size: var(--fontMedium);
+}
+
+.button {
+  font-size: var(--fontMedium);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  margin: 0 28px;
+  color: #fff;
+}
+
+.decrement {
+  background-color: dodgerblue;
+}
+
+.destory {
+  background-color: var(--colorPunch);
 }

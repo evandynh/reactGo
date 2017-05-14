@@ -1,20 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import TopicItem from '../components/TopicItem';
 import styles from '../css/components/scoreboard';
 
 const cx = classNames.bind(styles);
 
-const Scoreboard = ({topics}) => {
+const Scoreboard = ({topics, onIncompletion, onDestroy}) => {
   const topicListItems = topics.map((topic, key) => {
-    if(topic.completed){
+    if(topic.complete){
       return (
 
         <li className={cx('item')} key={key}>
           <span className={cx('topic')}>{topic.text}</span>
-            <button
-              className={cx('button', 'increment')}
-              onClick={onIncompletion}>+</button>
+          <button
+            className={cx('button', 'decrement')}
+            onClick={onIncompletion}>+</button>
+          <button
+            className={cx('button', 'destory')}
+            onClick={onDestroy}>+</button>
         </li>
       );
     }

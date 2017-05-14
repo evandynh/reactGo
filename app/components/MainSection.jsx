@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 
 const MainSection = ({ topics, onIncrement, onDecrement, onDestroy, onCompletion }) => {
   const topicItems = topics.map((topic, key) => {
-    if(!topic.completed) {
+    if(!topic.complete) {
     return (
       <TopicItem
         index={key}
