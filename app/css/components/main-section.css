@@ -4,7 +4,7 @@
 
 .main-section {
   @apply --card;
-  width: 55%;
+  width: 52%;
   border-radius: var(--globalRadius);
   background-color: #fff;
 }
@@ -19,4 +19,8 @@
 .list {
   list-style: none;
   padding: 16px;
+}
+
+button:hover {
+  background-color: rgba(0,0,0,.5);
 }
