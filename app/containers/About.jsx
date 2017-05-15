@@ -12,18 +12,20 @@ const cx = classNames.bind(styles);
 const About = () => {
   return (
     <div className={cx('about')}>
-      <h1 className={cx('header')}>About Ninja Ocean</h1>
+      <h1 className={cx('header')}>About Eric Van Dyn Hoven</h1>
+      <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAsQAAAAJGQ3N2NmZGExLWE0ODQtNDEyOC05MmM2LTk4ZWJkNzk5MjU3Yw.jpg" />
       <div className={cx('description')}>
-        <p>Imagine an ocean of ninjas. Now think of it as a metaphor.<br />
-          Seriously, we love good tech. React, redux, scala, Haskell, machine learning, you name it!
+        <p>I am a full stack web developer coming out of General Assembly's Web Development Immersive program. I was born and raised in Southwest Wisconsin where I grew up playing a lot of basketball and video games. Now days, I love to challenge myself with learning new technology and building applications that make life easier to manage.
+        <br />
+        <br />
+        I have been creative my whole life through filmmaking and I plan to bring that creative problem solving over into my career as a web developer. I always have to find that balance between being functional and aesthetically pleasing to look at.
         </p>
       </div>
       <div className={cx('contribute')}>
-        <p>Want to contribute? Help us out!
-          If you think the code on &nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://github.com/choonkending/react-webpack-node">this repo</a>
-        &nbsp;could be improved, please create an issue&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://github.com/choonkending/react-webpack-node/issues">here</a>!
+        <p>Want to see more? Checkout his Github&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/evandynh">here</a>&nbsp;
+        and Linkedin&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/evandynhoven/">here</a>!
         </p>
       </div>
     </div>

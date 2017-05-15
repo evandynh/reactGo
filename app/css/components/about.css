@@ -1,9 +1,21 @@
 @import '../common/typography';
 
+.about {
+  width: 90%;
+  margin: 0 auto;
+  color: #fff;
+}
+
 .header {
   @apply --heading;
   text-align: center;
 }
 
+img {
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+    box-shadow: 2px 3px 11px #000;
+  }
 .description { @apply --normal; }
 .contribute { @apply --small; }
